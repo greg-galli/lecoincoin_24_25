@@ -1,5 +1,6 @@
 package fr.bihar.lecoincoin
 
+import grails.rest.Resource
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
@@ -30,6 +31,7 @@ class User implements Serializable {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
         email email: true, unique: true, nullable: false, blank: false
+        phone nullable: true
     }
 
     static mapping = {

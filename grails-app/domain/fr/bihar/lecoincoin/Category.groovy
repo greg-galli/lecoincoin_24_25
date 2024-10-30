@@ -1,5 +1,7 @@
 package fr.bihar.lecoincoin
 
+import grails.rest.Resource
+
 class Category {
 
     String name
