@@ -7,6 +7,12 @@ class SaleAd {
     Date dateCreated
     Date lastUpdated
     Boolean active = Boolean.FALSE
+    Address address
+    Category category
+
+    static hasMany = [illustrations: Illustration]
+
+    static belongsTo = [author: User]
 
     static constraints = {
         title nullable: false, blank: false, maxSize: 100

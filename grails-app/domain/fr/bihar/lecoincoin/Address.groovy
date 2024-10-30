@@ -7,6 +7,8 @@ class Address {
     String city
     String country
 
+    static belongsTo = SaleAd
+
     static constraints = {
         address nullable: false, blank: false
         postCode nullable: false, blank: false, maxSize: 10
