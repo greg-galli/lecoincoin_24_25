@@ -45,7 +45,7 @@ class SaleAdController {
     }
 
     def edit(Long id) {
-        respond saleAdService.get(id)
+        respond saleAdService.get(id), model: [categoryList: Category.list(), userList: User.list()]
     }
 
     def update(SaleAd saleAd) {
@@ -55,6 +55,11 @@ class SaleAdController {
         }
 
         try {
+            /**
+             * TODO: Il faut sauvegarder l'image envoyée depuis le formulaire
+             * La sauvegarder en local puis créer une illustration sur le fichier
+             * que vous avez sauvegardé. Enfin on ajoute l'illustration à l'annonce
+              */
             saleAdService.save(saleAd)
         } catch (ValidationException e) {
             respond saleAd.errors, view:'edit'
