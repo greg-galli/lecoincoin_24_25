@@ -1,5 +1,6 @@
 package fr.bihar.lecoincoin
 
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 

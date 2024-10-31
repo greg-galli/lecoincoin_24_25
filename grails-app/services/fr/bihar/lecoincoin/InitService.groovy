@@ -5,6 +5,7 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class InitService {
 
+
     def init() {
         // Création des rôles
         def roleClient = new Role(authority: "ROLE_CLIENT").save()

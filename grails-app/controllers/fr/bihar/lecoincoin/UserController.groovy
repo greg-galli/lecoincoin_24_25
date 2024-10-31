@@ -1,11 +1,15 @@
 package fr.bihar.lecoincoin
 
+import grails.plugin.springsecurity.SpringSecurityService
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
+@Secured(['ROLE_ADMIN'])
 class UserController {
 
     UserService userService
+    SpringSecurityService springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -44,11 +48,26 @@ class UserController {
         }
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_CLIENT'])
     def edit(Long id) {
-        respond userService.get(id)
+        User logginUser = (User)springSecurityService.getCurrentUser()
+        def userRole = Role.findByAuthority('ROLE_CLIENT')
+        if (logginUser.getAuthorities().contains(userRole) && id != logginUser.id)
+            redirect(url: "/")
+        else
+            respond userService.get(id)
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_CLIENT'])
     def update(User user) {
+
+        User logginUser = (User)springSecurityService.getCurrentUser()
+        def userRole = Role.findByAuthority('ROLE_CLIENT')
+        if (logginUser.getAuthorities().contains(userRole) && user.id != logginUser.id) {
+            redirect(url: "/")
+            return
+        }
+
         if (user == null) {
             notFound()
             return
