@@ -6,33 +6,60 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-    <div id="content" role="main">
-        <div class="container">
-            <section class="row">
-                <a href="#list-saleAd" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-                <div class="nav" role="navigation">
-                    <ul>
-                        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                    </ul>
-                </div>
-            </section>
-            <section class="row">
-                <div id="list-saleAd" class="col-12 content scaffold-list" role="main">
-                    <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-                    <g:if test="${flash.message}">
-                        <div class="message" role="status">${flash.message}</div>
-                    </g:if>
-                    <f:table collection="${saleAdList}" />
-
-                    <g:if test="${saleAdCount > params.int('max')}">
-                    <div class="pagination">
-                        <g:paginate total="${saleAdCount ?: 0}" />
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Sale Ad List</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                    <th>Price</th>
+                                    <th>Created</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <g:each in="${saleAdList}" var="saleAd">
+                                    <tr>
+                                        <td>${saleAd.title}</td>
+                                        <td><g:link controller="category" action="show" id="${saleAd.category.id}">${saleAd.category.name}</g:link></td>
+                                        <td><g:link controller="user" action="show" id="${saleAd.author.id}">${saleAd.author.username}</g:link></td>
+                                        <td>${saleAd.price}</td>
+                                        <td>${saleAd.dateCreated}</td>
+                                    </tr>
+                                </g:each>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                    <th>Price</th>
+                                    <th>Created</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    </g:if>
+                    <!-- /.card -->
+
                 </div>
-            </section>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
         </div>
-    </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
     </body>
 </html>
