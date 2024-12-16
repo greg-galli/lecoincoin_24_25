@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "d65df671-8018-4ade-b82b-bf2f48bfa7b4",
+		"name": "Grails - BIHAR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "928748"
+	},
+	"item": [
+		{
+			"name": "Authenticated",
+			"item": [
+				{
+					"name": "GET User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "azeaze",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUEvNVZTUDA4VVFSUi90M2NYRENRS0pwaFluSTNZbWIwRU9xN2lFSTFrUFlqSE5aaG81bllmNjhEc3pESXpDM2VOdVVvTENnaEtZc0pYNEp0SXd3Y2dXdGhTMC9KbU9kakRoampkdnZudDc5K2Jrd3VvR2cxenNXWmNHRDhWV2N5bGIxTE5aV3d3ekRTM2ZUOHpxQ08wT2VKTkR1elFCSzVQeVlOU0FCNlBMRHdPTnRrT3F3c200L3BLZHhORDIraHBtRlU2SGpKdWFKYmdydEpiL2kxM3FEVGVFU2lvdlhrUHh0Wmhpb1doeXFSdEtiblVTN25HYUIwbWkxbWd3aTAzbWc3cEJxWGxUSmhSNkJoSzFoVVlCVERCTXZ0WmtTcEhZK0hSdGRuTWNsRnZvMjBFOENCbHhwQzdmNUswcmJQdTdwMU5TUW0yNFF0VWVtbUpEblgzd2tGOXgrTXZLaUVvTlZmU3pIUmtvaUsrd1owNDhROXFoMmY3eDRPT0IwQ2R2THovbjJMK3RBbURYeDh2bitWRmwwSUxUMGFzRjdCR0x5VTNVd1h6bWthbmZQNXo5ZnZSeGJjUFpWSjJpTmYvdjQrWmhXRnovVVdWcEV3enEwWjJSTFM3RmZjU2lMeDVQL25ORnZwK215ZXBRSHBSMG1KMEsxRVFVOXlLVnVLbWJ3dmo3MWVDcFU4THI5NjliYm5QS29zU0xrbjFZUjdhYmNzUEZPMXE3Ky9CNmY3ejM4U3dETlVkSmpLa3ppY0xVQ3RMdXFpL25oelZKbjc4MmNzVERGOXorUW9oeDVPeEVRTUFBQT09Iiwic3ViIjoiYWRtaW4iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6IlNwcmluZyBTZWN1cml0eSBSRVNUIEdyYWlscyBQbHVnaW4iLCJleHAiOjE3MzQzNjg0MjksImlhdCI6MTczNDM2NDgyOX0.QsTsFwE4Wuft8IUek3TRZHn5zVdmH6BfIoaEoht6Ys0",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
